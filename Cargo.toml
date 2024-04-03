@@ -1,0 +1,3 @@
+[workspace]
+members = ["movie_review"]
+resolver = "2"
