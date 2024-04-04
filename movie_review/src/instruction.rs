@@ -21,7 +21,7 @@ impl MovieInstruction {
         let (&variant, rest) = input
             .split_first()
             .ok_or(ProgramError::InvalidInstructionData)?;
-        let instruction = MovieReviewPayload::try_from_slice(rest)?;
+        let instruction = MovieReviewPayload::try_from_slice(rest).unwrap();
         Ok(match variant {
             0 => MovieInstruction::AddMovieReview {
                 title: instruction.title,
