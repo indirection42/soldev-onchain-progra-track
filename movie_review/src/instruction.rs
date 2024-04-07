@@ -7,6 +7,11 @@ pub enum MovieInstruction {
         rating: u8,
         description: String,
     },
+    UpdateMovieReview {
+        title: String,
+        rating: u8,
+        description: String,
+    },
 }
 
 #[derive(BorshDeserialize)]
@@ -24,6 +29,11 @@ impl MovieInstruction {
         let instruction = MovieReviewPayload::try_from_slice(rest).unwrap();
         Ok(match variant {
             0 => MovieInstruction::AddMovieReview {
+                title: instruction.title,
+                rating: instruction.rating,
+                description: instruction.description,
+            },
+            1 => MovieInstruction::UpdateMovieReview {
                 title: instruction.title,
                 rating: instruction.rating,
                 description: instruction.description,

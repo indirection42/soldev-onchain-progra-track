@@ -11,4 +11,5 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 solana-program = "1.18"
+thiserror = "1.0"
 borsh = "1"
